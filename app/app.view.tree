@@ -1,5 +1,10 @@
 $idle_app $mol_page
 	title \Idle Mol Game
+	tools /
+		<= Telegram $mol_link_source
+			Icon <= Telegram_icon $mol_icon_telegram
+			uri \https://t.me/h_y_o_o/4484
+		<= Sources $mol_link_source uri \https://github.com/Lyumih/idle
 	body /
 		<= Stats_row $mol_row sub /
 			<= Money $mol_paragraph title <= money_title \🪙0
