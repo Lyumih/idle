@@ -118,6 +118,7 @@
     "$mol_style_sheet",
     "$mol_type_enforce",
     "$mol_paragraph",
+    "$mol_row",
     "$mol_button_major",
     "$mol_button",
     "$mol_speck",

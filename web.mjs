@@ -3163,6 +3163,20 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_row) = class $mol_row extends ($.$mol_view) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/row/row.view.css", "[mol_row] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\talign-items: flex-start;\n\talign-content: flex-start;\n\tjustify-content: flex-start;\n\tpadding: var(--mol_gap_block);\n\tgap: var(--mol_gap_block);\n\tflex: 0 0 auto;\n\tbox-sizing: border-box;\n\tmax-width: 100%;\n}\n\n[mol_row] > * {\n\tmax-width: 100%;\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
 	($.$mol_speck) = class $mol_speck extends ($.$mol_view) {
 		attr(){
 			return {...(super.attr()), "mol_theme": (this.theme())};
@@ -3516,25 +3530,185 @@ var $;
 			return "Idle Mol Game";
 		}
 		body(){
-			return [(this.Enemy()), (this.Attack())];
+			return [
+				(this.Stats_row()), 
+				(this.Ememy_row()), 
+				(this.Attack_enemy())
+			];
+		}
+		foot(){
+			return [(this.Damage_up())];
+		}
+		money_title(){
+			return "🪙0";
+		}
+		Money(){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.money_title()));
+			return obj;
+		}
+		damage_title(){
+			return "⚔️0";
+		}
+		Damage(){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.damage_title()));
+			return obj;
+		}
+		Stats_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([(this.Money()), (this.Damage())]);
+			return obj;
 		}
 		Enemy(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ("123");
+			(obj.title) = () => ("👻 ");
 			return obj;
 		}
-		Attack(){
+		level_title(){
+			return "";
+		}
+		Enemy_level(){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.level_title()));
+			return obj;
+		}
+		health_title(){
+			return "❤️0";
+		}
+		Enemy_health(){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.health_title()));
+			return obj;
+		}
+		Ememy_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([
+				(this.Enemy()), 
+				(this.Enemy_level()), 
+				(this.Enemy_health())
+			]);
+			return obj;
+		}
+		attack_enemy(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		Attack_enemy(){
 			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ("Attack");
+			(obj.title) = () => ("Атаковать");
+			(obj.click) = (next) => ((this.attack_enemy(next)));
+			return obj;
+		}
+		damage_up_title(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		damage_up_enabled(next){
+			if(next !== undefined) return next;
+			return false;
+		}
+		damage_up(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		Damage_up(){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ((this.damage_up_title()));
+			(obj.enabled) = (next) => ((this.damage_up_enabled(next)));
+			(obj.click) = (next) => ((this.damage_up(next)));
 			return obj;
 		}
 	};
+	($mol_mem(($.$idle_app.prototype), "Money"));
+	($mol_mem(($.$idle_app.prototype), "Damage"));
+	($mol_mem(($.$idle_app.prototype), "Stats_row"));
 	($mol_mem(($.$idle_app.prototype), "Enemy"));
-	($mol_mem(($.$idle_app.prototype), "Attack"));
+	($mol_mem(($.$idle_app.prototype), "Enemy_level"));
+	($mol_mem(($.$idle_app.prototype), "Enemy_health"));
+	($mol_mem(($.$idle_app.prototype), "Ememy_row"));
+	($mol_mem(($.$idle_app.prototype), "attack_enemy"));
+	($mol_mem(($.$idle_app.prototype), "Attack_enemy"));
+	($mol_mem(($.$idle_app.prototype), "damage_up_title"));
+	($mol_mem(($.$idle_app.prototype), "damage_up_enabled"));
+	($mol_mem(($.$idle_app.prototype), "damage_up"));
+	($mol_mem(($.$idle_app.prototype), "Damage_up"));
 
 
 ;
 "use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $idle_app extends $.$idle_app {
+            money(next) {
+                return next ?? 0;
+            }
+            money_title() {
+                return '🪙' + this.money();
+            }
+            health(next) {
+                return next ?? 3;
+            }
+            health_title() {
+                return '❤️' + this.health();
+            }
+            damage() {
+                return this.damage_level() * 2 + 1;
+            }
+            level(next) {
+                return next ?? 0;
+            }
+            level_title() {
+                return '⭐' + this.level();
+            }
+            attack_enemy() {
+                this.health(this.health() - this.damage());
+                if (this.health() <= 0) {
+                    this.level(this.level() + 1);
+                    this.health(this.level() * 2 + 5);
+                    this.money(this.money() + this.level());
+                }
+            }
+            damage_title() {
+                return '⚔️' + this.damage();
+            }
+            damage_level(next) {
+                return next ?? 0;
+            }
+            damage_up() {
+                this.money(this.money() - this.damage_up_cost());
+                this.damage_level(this.damage_level() + 1);
+            }
+            damage_up_cost() {
+                return this.damage_level() * 2 + 1;
+            }
+            damage_up_enabled() {
+                return this.damage_up_cost() <= this.money();
+            }
+            damage_up_title() {
+                return '⚔️' + this.damage() + '🌟' + this.damage_level() + '💲' + this.damage_up_cost();
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $idle_app.prototype, "money", null);
+        __decorate([
+            $mol_mem
+        ], $idle_app.prototype, "health", null);
+        __decorate([
+            $mol_mem
+        ], $idle_app.prototype, "level", null);
+        __decorate([
+            $mol_mem
+        ], $idle_app.prototype, "damage_level", null);
+        $$.$idle_app = $idle_app;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
 
 
 export default $

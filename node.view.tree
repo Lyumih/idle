@@ -41,6 +41,8 @@ $mol_paragraph $mol_view
 	row_width 0
 	sub / <= title
 
+$mol_row $mol_view
+
 $mol_speck $mol_view
 	attr *
 		^
@@ -83,6 +85,18 @@ $mol_button_major $mol_button_typed
 $idle_app $mol_page
 	title \Idle Mol Game
 	body /
-		<= Enemy $mol_paragraph title \123
-		<= Attack $mol_button_major
-			title \Attack
+		<= Stats_row $mol_row sub /
+			<= Money $mol_paragraph title <= money_title \🪙0
+			<= Damage $mol_paragraph title <= damage_title \⚔️0
+		<= Ememy_row $mol_row sub /
+			<= Enemy $mol_paragraph title \👻 
+			<= Enemy_level $mol_paragraph title <= level_title \
+			<= Enemy_health $mol_paragraph title <= health_title \❤️0
+		<= Attack_enemy $mol_button_major
+			title \Атаковать
+			click? <=> attack_enemy? null
+	foot /
+		<= Damage_up $mol_button_major
+			title <= damage_up_title? \
+			enabled? <=> damage_up_enabled? false
+			click? <=> damage_up? null
