@@ -1,6 +1,0 @@
-$idle_app $mol_page
-	title \Idle Mol Game
-	body /
-		<= Enemy $mol_paragraph title \123
-		<= Attack $mol_button_major
-			title \Attack
