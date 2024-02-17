@@ -43,6 +43,15 @@ namespace $.$$ {
 			}
 		}
 
+		@$mol_mem
+		auto_attack() {
+			if( this.auto_checked() ) {
+				console.log( 'auto attack' )
+				this.attack_enemy()
+				this.$.$mol_state_time.now( 500 )
+			}
+		}
+
 		damage_title() {
 			return '⚔️' + this.damage()
 		}

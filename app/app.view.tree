@@ -1,5 +1,7 @@
 $idle_app $mol_page
 	title \Idle Mol Game
+	auto /
+		<= auto_attack null
 	tools /
 		<= Telegram $mol_link_source
 			Icon <= Telegram_icon $mol_icon_telegram
@@ -13,13 +15,17 @@ $idle_app $mol_page
 			<= Enemy $mol_paragraph title \👻 
 			<= Enemy_level $mol_paragraph title <= level_title \
 			<= Enemy_health $mol_paragraph title <= health_title \❤️0
-		<= Attack_enemy $mol_button_major
-			title \Атаковать
-			click? <=> attack_enemy? null
+		<= Action_row $mol_row sub /
+			<= Attack_enemy $mol_button_major
+				title \Атаковать
+				click? <=> attack_enemy? null
 		<= Skills_row $mol_row sub /
 			<= Dmg_x10 $mol_button_major
 				title \🪄 x10
 				click? <=> skill_x10? null
+			<= Auto_attack $mol_check_box
+				title \Автоатака
+				checked? <=> auto_checked? true
 	foot /
 		<= Damage_up $mol_button_major
 			title <= damage_up_title? \
