@@ -143,8 +143,30 @@ $mol_button_major $mol_button_typed
 		^
 		mol_theme \$mol_theme_accent
 
+$mol_button_minor $mol_button_typed
+
+$mol_check $mol_button_minor
+	attr *
+		^
+		mol_check_checked <= checked? false
+		aria-checked <= aria_checked \false
+		role <= aria_role \checkbox
+	sub /$mol_view_content
+		<= Icon null
+		<= label /
+			<= Title $mol_view
+				sub /
+					<= title \
+
+$mol_icon_tick $mol_icon path \M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z
+
+$mol_check_box $mol_check
+	Icon $mol_icon_tick
+
 $idle_app $mol_page
 	title \Idle Mol Game
+	auto /
+		<= auto_attack null
 	tools /
 		<= Telegram $mol_link_source
 			Icon <= Telegram_icon $mol_icon_telegram
@@ -158,13 +180,17 @@ $idle_app $mol_page
 			<= Enemy $mol_paragraph title \👻 
 			<= Enemy_level $mol_paragraph title <= level_title \
 			<= Enemy_health $mol_paragraph title <= health_title \❤️0
-		<= Attack_enemy $mol_button_major
-			title \Атаковать
-			click? <=> attack_enemy? null
+		<= Action_row $mol_row sub /
+			<= Attack_enemy $mol_button_major
+				title \Атаковать
+				click? <=> attack_enemy? null
 		<= Skills_row $mol_row sub /
 			<= Dmg_x10 $mol_button_major
 				title \🪄 x10
 				click? <=> skill_x10? null
+			<= Auto_attack $mol_check_box
+				title \Автоатака
+				checked? <=> auto_checked? true
 	foot /
 		<= Damage_up $mol_button_major
 			title <= damage_up_title? \

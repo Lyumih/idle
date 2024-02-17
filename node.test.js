@@ -5116,9 +5116,150 @@ var $;
 "use strict";
 
 ;
+	($.$mol_button_minor) = class $mol_button_minor extends ($.$mol_button_typed) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/button/minor/minor.view.css", "[mol_button_minor] {\n\tcolor: var(--mol_theme_control);\n}\n\n[mol_button_minor][disabled] {\n\tcolor: var(--mol_theme_shade);\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$mol_check) = class $mol_check extends ($.$mol_button_minor) {
+		attr(){
+			return {
+				...(super.attr()), 
+				"mol_check_checked": (this.checked()), 
+				"aria-checked": (this.aria_checked()), 
+				"role": (this.aria_role())
+			};
+		}
+		sub(){
+			return [(this.Icon()), (this.label())];
+		}
+		checked(next){
+			if(next !== undefined) return next;
+			return false;
+		}
+		aria_checked(){
+			return "false";
+		}
+		aria_role(){
+			return "checkbox";
+		}
+		Icon(){
+			return null;
+		}
+		title(){
+			return "";
+		}
+		Title(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.title())]);
+			return obj;
+		}
+		label(){
+			return [(this.Title())];
+		}
+	};
+	($mol_mem(($.$mol_check.prototype), "checked"));
+	($mol_mem(($.$mol_check.prototype), "Title"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    function $mol_maybe(value) {
+        return (value == null) ? [] : [value];
+    }
+    $.$mol_maybe = $mol_maybe;
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/check/check.css", "[mol_check] {\n\tflex: 0 0 auto;\n\tjustify-content: flex-start;\n\talign-content: center;\n\t/* align-items: flex-start; */\n\tborder: none;\n\tfont-weight: inherit;\n\tbox-shadow: none;\n\ttext-align: left;\n\tdisplay: inline-flex;\n\tflex-wrap: nowrap;\n}\n\n[mol_check_title] {\n\tflex-shrink: 1;\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_check extends $.$mol_check {
+            click(next) {
+                if (next?.defaultPrevented)
+                    return;
+                this.checked(!this.checked());
+                if (next)
+                    next.preventDefault();
+            }
+            sub() {
+                return [
+                    ...$mol_maybe(this.Icon()),
+                    ...this.label(),
+                ];
+            }
+            label() {
+                return this.title() ? super.label() : [];
+            }
+            aria_checked() {
+                return String(this.checked());
+            }
+        }
+        $$.$mol_check = $mol_check;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+	($.$mol_icon_tick) = class $mol_icon_tick extends ($.$mol_icon) {
+		path(){
+			return "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_check_box) = class $mol_check_box extends ($.$mol_check) {
+		Icon(){
+			const obj = new this.$.$mol_icon_tick();
+			return obj;
+		}
+	};
+	($mol_mem(($.$mol_check_box.prototype), "Icon"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/check/box/box.view.css", "[mol_check_box_icon] {\n\tborder-radius: var(--mol_gap_round);\n\tbox-shadow: inset 0 0 0 1px var(--mol_theme_line);\n\tcolor: var(--mol_theme_shade);\n\theight: 1rem;\n\talign-self: center;\n}\n\n[mol_check]:not([mol_check_checked]) > [mol_check_box_icon] {\n\tfill: transparent;\n}\n\n[mol_check]:not([disabled]) > [mol_check_box_icon] {\n\tbackground: var(--mol_theme_field);\n\tcolor: var(--mol_theme_text);\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
 	($.$idle_app) = class $idle_app extends ($.$mol_page) {
 		title(){
 			return "Idle Mol Game";
+		}
+		auto(){
+			return [(this.auto_attack())];
 		}
 		tools(){
 			return [(this.Telegram()), (this.Sources())];
@@ -5127,12 +5268,15 @@ var $;
 			return [
 				(this.Stats_row()), 
 				(this.Ememy_row()), 
-				(this.Attack_enemy()), 
+				(this.Action_row()), 
 				(this.Skills_row())
 			];
 		}
 		foot(){
 			return [(this.Damage_up())];
+		}
+		auto_attack(){
+			return null;
 		}
 		Telegram_icon(){
 			const obj = new this.$.$mol_icon_telegram();
@@ -5210,6 +5354,11 @@ var $;
 			(obj.click) = (next) => ((this.attack_enemy(next)));
 			return obj;
 		}
+		Action_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([(this.Attack_enemy())]);
+			return obj;
+		}
 		skill_x10(next){
 			if(next !== undefined) return next;
 			return null;
@@ -5220,9 +5369,19 @@ var $;
 			(obj.click) = (next) => ((this.skill_x10(next)));
 			return obj;
 		}
+		auto_checked(next){
+			if(next !== undefined) return next;
+			return true;
+		}
+		Auto_attack(){
+			const obj = new this.$.$mol_check_box();
+			(obj.title) = () => ("Автоатака");
+			(obj.checked) = (next) => ((this.auto_checked(next)));
+			return obj;
+		}
 		Skills_row(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ([(this.Dmg_x10())]);
+			(obj.sub) = () => ([(this.Dmg_x10()), (this.Auto_attack())]);
 			return obj;
 		}
 		damage_up_title(next){
@@ -5257,8 +5416,11 @@ var $;
 	($mol_mem(($.$idle_app.prototype), "Ememy_row"));
 	($mol_mem(($.$idle_app.prototype), "attack_enemy"));
 	($mol_mem(($.$idle_app.prototype), "Attack_enemy"));
+	($mol_mem(($.$idle_app.prototype), "Action_row"));
 	($mol_mem(($.$idle_app.prototype), "skill_x10"));
 	($mol_mem(($.$idle_app.prototype), "Dmg_x10"));
+	($mol_mem(($.$idle_app.prototype), "auto_checked"));
+	($mol_mem(($.$idle_app.prototype), "Auto_attack"));
 	($mol_mem(($.$idle_app.prototype), "Skills_row"));
 	($mol_mem(($.$idle_app.prototype), "damage_up_title"));
 	($mol_mem(($.$idle_app.prototype), "damage_up_enabled"));
@@ -5307,6 +5469,13 @@ var $;
                     this.money(this.money() + this.level());
                 }
             }
+            auto_attack() {
+                if (this.auto_checked()) {
+                    console.log('auto attack');
+                    this.attack_enemy();
+                    this.$.$mol_state_time.now(500);
+                }
+            }
             damage_title() {
                 return '⚔️' + this.damage();
             }
@@ -5342,6 +5511,9 @@ var $;
         __decorate([
             $mol_mem
         ], $idle_app.prototype, "level", null);
+        __decorate([
+            $mol_mem
+        ], $idle_app.prototype, "auto_attack", null);
         __decorate([
             $mol_mem
         ], $idle_app.prototype, "damage_level", null);
@@ -8220,6 +8392,22 @@ var $;
             },
         });
     })($$ = $_1.$$ || ($_1.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_test({
+        'all cases of using maybe'() {
+            $mol_assert_equal($mol_maybe(0)[0], 0);
+            $mol_assert_equal($mol_maybe(false)[0], false);
+            $mol_assert_equal($mol_maybe(null)[0], void 0);
+            $mol_assert_equal($mol_maybe(void 0)[0], void 0);
+            $mol_assert_equal($mol_maybe(void 0).map(v => v.toString())[0], void 0);
+            $mol_assert_equal($mol_maybe(0).map(v => v.toString())[0], '0');
+        },
+    });
 })($ || ($ = {}));
 
 

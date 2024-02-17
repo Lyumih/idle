@@ -921,57 +921,57 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_view__dom_name__9G1IAF5T = $mol_type_enforce<
+	type $mol_view__dom_name__CSDN4XAB = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_view['dom_name'] >
 	>
-	type $mol_view__sub__M8LM2LXV = $mol_type_enforce<
+	type $mol_view__sub__FU71M1VG = $mol_type_enforce<
 		ReturnType< $mol_page['title_content'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub__GYYXEGVL = $mol_type_enforce<
+	type $mol_view__sub__T3ZO21XN = $mol_type_enforce<
 		ReturnType< $mol_page['tools'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__minimal_height__FGLDWC7C = $mol_type_enforce<
+	type $mol_view__minimal_height__47URP3JP = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_view['minimal_height'] >
 	>
-	type $mol_view__dom_name__NI8U4C3K = $mol_type_enforce<
+	type $mol_view__dom_name__EWNZEKKG = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_view['dom_name'] >
 	>
-	type $mol_view__sub__90ZWKE1A = $mol_type_enforce<
+	type $mol_view__sub__QGGVT61P = $mol_type_enforce<
 		ReturnType< $mol_page['head'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_page_body_scroll_top__QM0VUBFC = $mol_type_enforce<
+	type $mol_page_body_scroll_top__NR827CKH = $mol_type_enforce<
 		Parameters< $mol_page['body_scroll_top'] >[0]
 		,
 		Parameters< ReturnType< $mol_page['Body'] >['scroll_top'] >[0]
 	>
-	type $mol_view__sub__94C7398D = $mol_type_enforce<
+	type $mol_view__sub__KEV12MTF = $mol_type_enforce<
 		ReturnType< $mol_page['body'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_scroll__sub__34OBOO7P = $mol_type_enforce<
+	type $mol_scroll__sub__VG8O0AXK = $mol_type_enforce<
 		ReturnType< $mol_page['body_content'] >
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_view__dom_name__8BXP3ZGF = $mol_type_enforce<
+	type $mol_view__dom_name__JDCSHZLR = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_view['dom_name'] >
 	>
-	type $mol_view__sub__JF4O9O9C = $mol_type_enforce<
+	type $mol_view__sub__OG02PY49 = $mol_type_enforce<
 		ReturnType< $mol_page['foot'] >
 		,
 		ReturnType< $mol_view['sub'] >
@@ -1079,7 +1079,7 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_svg_path__geometry__8RR79EA7 = $mol_type_enforce<
+	type $mol_svg_path__geometry__EMJOBSRO = $mol_type_enforce<
 		ReturnType< $mol_icon['path'] >
 		,
 		ReturnType< $mol_svg_path['geometry'] >
@@ -1558,7 +1558,7 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_speck__value__WDBFN4CN = $mol_type_enforce<
+	type $mol_speck__value__5DTEA9D8 = $mol_type_enforce<
 		ReturnType< $mol_button['error'] >
 		,
 		ReturnType< $mol_speck['value'] >
@@ -1637,102 +1637,189 @@ declare namespace $ {
 
 //# sourceMappingURL=major.view.tree.d.ts.map
 declare namespace $ {
+}
 
-	type $mol_link_source__Icon__98KOCB5U = $mol_type_enforce<
+declare namespace $ {
+
+	export class $mol_button_minor extends $mol_button_typed {
+	}
+	
+}
+
+//# sourceMappingURL=minor.view.tree.d.ts.map
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_view__sub__4C97GSIF = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_check extends $mol_button_minor {
+		attr( ): ({ 
+			'mol_check_checked': ReturnType< $mol_check['checked'] >,
+			'aria-checked': ReturnType< $mol_check['aria_checked'] >,
+			'role': ReturnType< $mol_check['aria_role'] >,
+		})  & ReturnType< $mol_button_minor['attr'] >
+		sub( ): readonly($mol_view_content)[]
+		checked( next?: boolean ): boolean
+		aria_checked( ): string
+		aria_role( ): string
+		Icon( ): any
+		title( ): string
+		Title( ): $mol_view
+		label( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=check.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_check extends $.$mol_check {
+        click(next?: Event): void;
+        sub(): readonly $mol_view_content[];
+        label(): readonly any[];
+        aria_checked(): string;
+    }
+}
+
+declare namespace $ {
+
+	export class $mol_icon_tick extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=tick.view.tree.d.ts.map
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	export class $mol_check_box extends $mol_check {
+		Icon( ): $mol_icon_tick
+	}
+	
+}
+
+//# sourceMappingURL=box.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_link_source__Icon__OWY4NH67 = $mol_type_enforce<
 		ReturnType< $idle_app['Telegram_icon'] >
 		,
 		ReturnType< $mol_link_source['Icon'] >
 	>
-	type $mol_link_source__uri__R40AR43D = $mol_type_enforce<
+	type $mol_link_source__uri__2QXPXAK4 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_source['uri'] >
 	>
-	type $mol_link_source__uri__E1P8KOQT = $mol_type_enforce<
+	type $mol_link_source__uri__BHRSEU2U = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_source['uri'] >
 	>
-	type $mol_paragraph__title__8K5ICZVZ = $mol_type_enforce<
+	type $mol_paragraph__title__OTJ1OP84 = $mol_type_enforce<
 		ReturnType< $idle_app['money_title'] >
 		,
 		ReturnType< $mol_paragraph['title'] >
 	>
-	type $mol_paragraph__title__LSF1CYS1 = $mol_type_enforce<
+	type $mol_paragraph__title__7ZOGVNES = $mol_type_enforce<
 		ReturnType< $idle_app['damage_title'] >
 		,
 		ReturnType< $mol_paragraph['title'] >
 	>
-	type $mol_row__sub__ZK2RZV2F = $mol_type_enforce<
+	type $mol_row__sub__CW5L8F01 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_row['sub'] >
 	>
-	type $mol_paragraph__title__67GS3RM0 = $mol_type_enforce<
+	type $mol_paragraph__title__YQYA9O0P = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_paragraph['title'] >
 	>
-	type $mol_paragraph__title__ZGICQUFS = $mol_type_enforce<
+	type $mol_paragraph__title__W9KURRBP = $mol_type_enforce<
 		ReturnType< $idle_app['level_title'] >
 		,
 		ReturnType< $mol_paragraph['title'] >
 	>
-	type $mol_paragraph__title__D6M2GS0U = $mol_type_enforce<
+	type $mol_paragraph__title__ZSIQG9R5 = $mol_type_enforce<
 		ReturnType< $idle_app['health_title'] >
 		,
 		ReturnType< $mol_paragraph['title'] >
 	>
-	type $mol_row__sub__Q02T40BD = $mol_type_enforce<
+	type $mol_row__sub__9I67MRKQ = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_row['sub'] >
 	>
-	type $mol_button_major__title__LDTRKPXM = $mol_type_enforce<
+	type $mol_button_major__title__T78SBMIL = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['title'] >
 	>
-	type $mol_button_major__click__RO6SJA32 = $mol_type_enforce<
+	type $mol_button_major__click__PZ5CDGSL = $mol_type_enforce<
 		ReturnType< $idle_app['attack_enemy'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__title__BJVZBSGF = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_button_major['title'] >
-	>
-	type $mol_button_major__click__9R5Q9J34 = $mol_type_enforce<
-		ReturnType< $idle_app['skill_x10'] >
-		,
-		ReturnType< $mol_button_major['click'] >
-	>
-	type $mol_row__sub__XXQU8N1H = $mol_type_enforce<
+	type $mol_row__sub__8DQ3AS31 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_row['sub'] >
 	>
-	type $mol_button_major__title__62Y8RRZH = $mol_type_enforce<
+	type $mol_button_major__title__AC6463SN = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_button_major['title'] >
+	>
+	type $mol_button_major__click__5J7DG756 = $mol_type_enforce<
+		ReturnType< $idle_app['skill_x10'] >
+		,
+		ReturnType< $mol_button_major['click'] >
+	>
+	type $mol_check_box__title__VO2Z04IP = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_check_box['title'] >
+	>
+	type $mol_check_box__checked__8IXF8PJC = $mol_type_enforce<
+		ReturnType< $idle_app['auto_checked'] >
+		,
+		ReturnType< $mol_check_box['checked'] >
+	>
+	type $mol_row__sub__SE31FBVI = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_row['sub'] >
+	>
+	type $mol_button_major__title__Y84R8WJK = $mol_type_enforce<
 		ReturnType< $idle_app['damage_up_title'] >
 		,
 		ReturnType< $mol_button_major['title'] >
 	>
-	type $mol_button_major__enabled__MTNZQW7W = $mol_type_enforce<
+	type $mol_button_major__enabled__7BQDPTFI = $mol_type_enforce<
 		ReturnType< $idle_app['damage_up_enabled'] >
 		,
 		ReturnType< $mol_button_major['enabled'] >
 	>
-	type $mol_button_major__click__TM0P3OX0 = $mol_type_enforce<
+	type $mol_button_major__click__MBICS77L = $mol_type_enforce<
 		ReturnType< $idle_app['damage_up'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
 	export class $idle_app extends $mol_page {
 		title( ): string
+		auto( ): readonly(any)[]
 		tools( ): readonly(any)[]
 		body( ): readonly(any)[]
 		foot( ): readonly(any)[]
+		auto_attack( ): any
 		Telegram_icon( ): $mol_icon_telegram
 		Telegram( ): $mol_link_source
 		Sources( ): $mol_link_source
@@ -1749,8 +1836,11 @@ declare namespace $ {
 		Ememy_row( ): $mol_row
 		attack_enemy( next?: any ): any
 		Attack_enemy( ): $mol_button_major
+		Action_row( ): $mol_row
 		skill_x10( next?: any ): any
 		Dmg_x10( ): $mol_button_major
+		auto_checked( next?: boolean ): boolean
+		Auto_attack( ): $mol_check_box
 		Skills_row( ): $mol_row
 		damage_up_title( next?: string ): string
 		damage_up_enabled( next?: boolean ): boolean
@@ -1771,6 +1861,7 @@ declare namespace $.$$ {
         level(next?: number): number;
         level_title(): string;
         attack_enemy(): void;
+        auto_attack(): void;
         damage_title(): string;
         damage_level(next?: number): number;
         damage_up(): void;
