@@ -4731,7 +4731,8 @@ var $;
 			return [
 				(this.Stats_row()), 
 				(this.Ememy_row()), 
-				(this.Attack_enemy())
+				(this.Attack_enemy()), 
+				(this.Skills_row())
 			];
 		}
 		foot(){
@@ -4813,6 +4814,21 @@ var $;
 			(obj.click) = (next) => ((this.attack_enemy(next)));
 			return obj;
 		}
+		skill_x10(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		Dmg_x10(){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ("🪄 x10");
+			(obj.click) = (next) => ((this.skill_x10(next)));
+			return obj;
+		}
+		Skills_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([(this.Dmg_x10())]);
+			return obj;
+		}
 		damage_up_title(next){
 			if(next !== undefined) return next;
 			return "";
@@ -4845,6 +4861,9 @@ var $;
 	($mol_mem(($.$idle_app.prototype), "Ememy_row"));
 	($mol_mem(($.$idle_app.prototype), "attack_enemy"));
 	($mol_mem(($.$idle_app.prototype), "Attack_enemy"));
+	($mol_mem(($.$idle_app.prototype), "skill_x10"));
+	($mol_mem(($.$idle_app.prototype), "Dmg_x10"));
+	($mol_mem(($.$idle_app.prototype), "Skills_row"));
 	($mol_mem(($.$idle_app.prototype), "damage_up_title"));
 	($mol_mem(($.$idle_app.prototype), "damage_up_enabled"));
 	($mol_mem(($.$idle_app.prototype), "damage_up"));
@@ -4883,8 +4902,10 @@ var $;
                 return '⭐' + this.level();
             }
             attack_enemy() {
+                console.log('attack_enemy');
                 this.health(this.health() - this.damage());
                 if (this.health() <= 0) {
+                    console.log('lvl up');
                     this.level(this.level() + 1);
                     this.health(this.level() * 2 + 5);
                     this.money(this.money() + this.level());
@@ -4908,6 +4929,12 @@ var $;
             }
             damage_up_title() {
                 return '⚔️' + this.damage() + '🌟' + this.damage_level() + '💲' + this.damage_up_cost();
+            }
+            skill_x10(next) {
+                for (let i = 0; i < 10; i++) {
+                    console.log(123);
+                    this.attack_enemy();
+                }
             }
         }
         __decorate([
