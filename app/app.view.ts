@@ -33,8 +33,10 @@ namespace $.$$ {
 		}
 
 		attack_enemy() {
+			console.log( 'attack_enemy' )
 			this.health( this.health() - this.damage() )
 			if( this.health() <= 0 ) {
+				console.log( 'lvl up' )
 				this.level( this.level() + 1 )
 				this.health( this.level() * 2 + 5 )
 				this.money( this.money() + this.level() )
@@ -65,6 +67,13 @@ namespace $.$$ {
 
 		damage_up_title() {
 			return '⚔️' + this.damage() + '🌟' + this.damage_level() + '💲' + this.damage_up_cost()
+		}
+
+		skill_x10( next?: any ) {
+			for( let i = 0; i < 10; i++ ) {
+				console.log( 123 )
+				this.attack_enemy()
+			}
 		}
 
 	}
