@@ -1,0 +1,27 @@
+$idle_app_dps $mol_page
+	title \DPS
+	auto /
+		<= auto_attack null
+	body /
+		<= Stats_row $mol_row sub /
+			<= Money $mol_paragraph title <= money_title \🪙0
+			<= Damage $mol_paragraph title <= damage_title \⚔️0
+		<= Ememy_row $mol_row sub /
+			<= Enemy $mol_paragraph title \👻 
+			<= Enemy_level $mol_paragraph title <= level_title \
+			<= Enemy_health $mol_paragraph title <= health_title \❤️0
+		<= Action_row $mol_row sub /
+			<= Attack_enemy $mol_button_major
+				title \Атаковать
+				click? <=> attack_enemy? null
+		<= Skills_row $mol_row sub /
+			<= Dmg_x10 $mol_button_major
+				title \🪄 x10
+				click? <=> skill_x10? null
+			<= Auto_attack $mol_check_box
+				title \Автоатака
+				checked? <=> auto_checked? true
+		<= Damage_up $mol_button_major
+			title <= damage_up_title? \
+			enabled? <=> damage_up_enabled? false
+			click? <=> damage_up? null

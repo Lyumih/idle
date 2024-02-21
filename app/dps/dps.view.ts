@@ -1,5 +1,5 @@
 namespace $.$$ {
-	export class $idle_app extends $.$idle_app {
+	export class $idle_app_dps extends $.$idle_app_dps {
 
 		@$mol_mem
 		money( next?: number ) {
