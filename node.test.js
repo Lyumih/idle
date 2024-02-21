@@ -6812,9 +6812,61 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_icon_telegram) = class $mol_icon_telegram extends ($.$mol_icon) {
+		path(){
+			return "M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_script) = class $mol_icon_script extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_script_text) = class $mol_icon_script_text extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_link_source) = class $mol_link_source extends ($.$mol_link) {
+		Icon(){
+			const obj = new this.$.$mol_icon_script_text();
+			return obj;
+		}
+		hint(){
+			return (this.$.$mol_locale.text("$mol_link_source_hint"));
+		}
+		sub(){
+			return [(this.Icon())];
+		}
+	};
+	($mol_mem(($.$mol_link_source.prototype), "Icon"));
+
+
+;
+"use strict";
+
+;
 	($.$idle_app_dice) = class $idle_app_dice extends ($.$mol_page) {
 		title(){
-			return "Dice";
+			return "🎲Dice";
 		}
 		body(){
 			return [];
@@ -7097,7 +7149,7 @@ var $;
 			return obj;
 		}
 		title(){
-			return "DPS";
+			return "⚔️DPS";
 		}
 		auto(){
 			return [(this.auto_attack())];
@@ -7228,6 +7280,21 @@ var $;
 
 ;
 	($.$idle_app) = class $idle_app extends ($.$mol_book2_catalog) {
+		Telegram_icon(){
+			const obj = new this.$.$mol_icon_telegram();
+			return obj;
+		}
+		Telegram(){
+			const obj = new this.$.$mol_link_source();
+			(obj.Icon) = () => ((this.Telegram_icon()));
+			(obj.uri) = () => ("https://t.me/h_y_o_o/4484");
+			return obj;
+		}
+		Sources(){
+			const obj = new this.$.$mol_link_source();
+			(obj.uri) = () => ("https://github.com/Lyumih/idle");
+			return obj;
+		}
 		Dice_page(){
 			const obj = new this.$.$idle_app_dice();
 			return obj;
@@ -7239,6 +7306,9 @@ var $;
 		menu_title(){
 			return "Idle";
 		}
+		menu_tools(){
+			return [(this.Telegram()), (this.Sources())];
+		}
 		param(){
 			return "game";
 		}
@@ -7246,6 +7316,9 @@ var $;
 			return {"dice": (this.Dice_page()), "dps": (this.Dps_page())};
 		}
 	};
+	($mol_mem(($.$idle_app.prototype), "Telegram_icon"));
+	($mol_mem(($.$idle_app.prototype), "Telegram"));
+	($mol_mem(($.$idle_app.prototype), "Sources"));
 	($mol_mem(($.$idle_app.prototype), "Dice_page"));
 	($mol_mem(($.$idle_app.prototype), "Dps_page"));
 
