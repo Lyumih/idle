@@ -1,6 +1,6 @@
 $idle_app $mol_book2_catalog
 	menu_title \Idle
-	- tools /
+	menu_tools /
 		<= Telegram $mol_link_source
 			Icon <= Telegram_icon $mol_icon_telegram
 			uri \https://t.me/h_y_o_o/4484

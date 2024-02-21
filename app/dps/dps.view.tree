@@ -1,5 +1,5 @@
 $idle_app_dps $mol_page
-	title \DPS
+	title \⚔️DPS
 	auto /
 		<= auto_attack null
 	body /
