@@ -6895,15 +6895,19 @@ var $;
 "use strict";
 
 ;
-	($.$idle_app_dice) = class $idle_app_dice extends ($.$mol_page) {
-		title(){
-			return "🎲Dice";
-		}
-		body(){
-			return [];
+	($.$mol_button_major) = class $mol_button_major extends ($.$mol_button_typed) {
+		attr(){
+			return {...(super.attr()), "mol_theme": "$mol_theme_accent"};
 		}
 	};
 
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/button/major/major.view.css", "[mol_button_major][disabled] {\n\topacity: .5;\n\tfilter: grayscale();\n}\n");
+})($ || ($ = {}));
 
 ;
 "use strict";
@@ -6923,22 +6927,147 @@ var $;
 "use strict";
 
 ;
-	($.$mol_button_major) = class $mol_button_major extends ($.$mol_button_typed) {
-		attr(){
-			return {...(super.attr()), "mol_theme": "$mol_theme_accent"};
+	($.$idle_app_dice) = class $idle_app_dice extends ($.$mol_page) {
+		money_label(){
+			return "";
+		}
+		Money(){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.money_label()));
+			return obj;
+		}
+		dice_result_label(id){
+			return "res 24";
+		}
+		Dice_result(id){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.dice_result_label(id)));
+			return obj;
+		}
+		dice_value_label(id){
+			return "val 2";
+		}
+		Dice_value(id){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.dice_value_label(id)));
+			return obj;
+		}
+		dice_level_label(id){
+			return "level 12";
+		}
+		Dice_level(id){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.dice_level_label(id)));
+			return obj;
+		}
+		dice_up(id){
+			return "472b";
+		}
+		Dice_up(id){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ((this.dice_up(id)));
+			return obj;
+		}
+		Dice_box(id){
+			const obj = new this.$.$mol_list();
+			(obj.rows) = () => ([
+				(this.Dice_result(id)), 
+				(this.Dice_value(id)), 
+				(this.Dice_level(id)), 
+				(this.Dice_up(id))
+			]);
+			return obj;
+		}
+		dice_list(){
+			return [(this.Dice_box("0"))];
+		}
+		Dice_list(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ((this.dice_list()));
+			return obj;
+		}
+		Dice_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([(this.Dice_list())]);
+			return obj;
+		}
+		Roll(){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ("Кинуть");
+			return obj;
+		}
+		title(){
+			return "🎲Dice";
+		}
+		body(){
+			return [
+				(this.Money()), 
+				(this.Dice_row()), 
+				(this.Roll())
+			];
 		}
 	};
+	($mol_mem(($.$idle_app_dice.prototype), "Money"));
+	($mol_mem_key(($.$idle_app_dice.prototype), "Dice_result"));
+	($mol_mem_key(($.$idle_app_dice.prototype), "Dice_value"));
+	($mol_mem_key(($.$idle_app_dice.prototype), "Dice_level"));
+	($mol_mem_key(($.$idle_app_dice.prototype), "Dice_up"));
+	($mol_mem_key(($.$idle_app_dice.prototype), "Dice_box"));
+	($mol_mem(($.$idle_app_dice.prototype), "Dice_list"));
+	($mol_mem(($.$idle_app_dice.prototype), "Dice_row"));
+	($mol_mem(($.$idle_app_dice.prototype), "Roll"));
 
+
+;
+"use strict";
 
 ;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("mol/button/major/major.view.css", "[mol_button_major][disabled] {\n\topacity: .5;\n\tfilter: grayscale();\n}\n");
+    var $$;
+    (function ($$) {
+        class $idle_app_dice extends $.$idle_app_dice {
+            money(next) {
+                return next ?? 0;
+            }
+            money_label() {
+                return '🪙' + this.money();
+            }
+            dices(next) {
+                console.log(next);
+                return next ?? [{
+                        id: '0',
+                        level: 1,
+                        mult: 1,
+                        cost: 1
+                    },
+                    {
+                        id: '1',
+                        level: 2,
+                        mult: 2,
+                        cost: 10
+                    }];
+            }
+            dice_list() {
+                return this.dices().map((dice, index) => this.Dice_box(index));
+            }
+            get_dice(id) {
+                return this.dices()[+id];
+            }
+            dice_level_label(id) {
+                return '⭐' + this.get_dice(id).level;
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $idle_app_dice.prototype, "money", null);
+        __decorate([
+            $mol_mem
+        ], $idle_app_dice.prototype, "dices", null);
+        $$.$idle_app_dice = $idle_app_dice;
+    })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
-
-;
-"use strict";
 
 ;
 	($.$mol_check) = class $mol_check extends ($.$mol_button_minor) {
