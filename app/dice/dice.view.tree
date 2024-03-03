@@ -1,3 +1,13 @@
 $idle_app_dice $mol_page
 	title \🎲Dice
 	body /
+		<= Money $mol_paragraph title <= money_label \
+		<= Dice_row $mol_row sub /
+			<= Dice_list $mol_row sub <= dice_list /
+				<= Dice_box*0 $mol_list rows /
+					<= Dice_result* $mol_paragraph title <= dice_result_label* \res 24
+					<= Dice_value* $mol_paragraph title <= dice_value_label* \val 2
+					<= Dice_level* $mol_paragraph title <= dice_level_label* \level 12
+					<= Dice_up* $mol_button_major title <= dice_up* \472b
+		<= Roll $mol_button_major
+			title \Кинуть
