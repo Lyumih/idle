@@ -335,6 +335,7 @@ $mol_link_source $mol_link
 		<= Icon $mol_icon_script_text
 
 $mol_button_major $mol_button_minor
+	theme \$mol_theme_base
 
 $mol_row $mol_view
 
