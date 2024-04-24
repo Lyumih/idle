@@ -132,7 +132,7 @@ $mol_icon $mol_svg_root
 		<= Path $mol_svg_path
 			geometry <= path \
 
-$mol_icon_cross $mol_icon path \M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z
+$mol_icon_close $mol_icon path \M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z
 
 $mol_speck $mol_view
 	attr *
@@ -225,7 +225,7 @@ $mol_search $mol_pop
 				hint @ \Clear
 				click?event <=> clear?event null
 				sub /
-					<= Clear_icon $mol_icon_cross
+					<= Clear_icon $mol_icon_close
 	bubble_content /$mol_view_content
 		<= Menu $mol_list
 			rows <= menu_items /$mol_view
@@ -321,7 +321,7 @@ $mol_book2_catalog $mol_book2
 	Spread_close $mol_link
 		arg <= spread_close_arg *
 		sub /
-			<= Spread_close_icon $mol_icon_cross
+			<= Spread_close_icon $mol_icon_close
 
 $mol_icon_telegram $mol_icon path \M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z
 
