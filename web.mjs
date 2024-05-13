@@ -2590,10 +2590,10 @@ var $;
 			return 0;
 		}
 		field(){
-			return {...(super.field()), "tabIndex": (this.tabindex())};
+			return {...(super.field()), "tabIndex": (this?.tabindex())};
 		}
 		event(){
-			return {...(super.event()), "scroll": (next) => (this.event_scroll(next))};
+			return {...(super.event()), "scroll": (next) => (this?.event_scroll(next))};
 		}
 	};
 	($mol_mem(($.$mol_scroll.prototype), "event_scroll"));
@@ -2888,7 +2888,7 @@ var $;
 			return "";
 		}
 		sub(){
-			return (this.pages());
+			return (this?.pages());
 		}
 		minimal_width(){
 			return 0;
@@ -3013,9 +3013,9 @@ var $;
 		}
 		Bubble(){
 			const obj = new this.$.$mol_pop_bubble();
-			(obj.align) = () => ((this.align()));
-			(obj.content) = () => ((this.bubble_content()));
-			(obj.height_max) = () => ((this.height_max()));
+			(obj.align) = () => ((this?.align()));
+			(obj.content) = () => ((this?.bubble_content()));
+			(obj.height_max) = () => ((this?.height_max()));
 			return obj;
 		}
 		showed(next){
@@ -3032,10 +3032,10 @@ var $;
 			return "vert";
 		}
 		sub(){
-			return [(this.Anchor())];
+			return [(this?.Anchor())];
 		}
 		sub_visible(){
-			return [(this.Anchor()), (this.Bubble())];
+			return [(this?.Anchor()), (this?.Bubble())];
 		}
 	};
 	($mol_mem(($.$mol_pop.prototype), "Bubble"));
@@ -3051,15 +3051,15 @@ var $;
 			return "";
 		}
 		sub(){
-			return (this.content());
+			return (this?.content());
 		}
 		style(){
-			return {...(super.style()), "maxHeight": (this.height_max())};
+			return {...(super.style()), "maxHeight": (this?.height_max())};
 		}
 		attr(){
 			return {
 				...(super.attr()), 
-				"mol_pop_align": (this.align()), 
+				"mol_pop_align": (this?.align()), 
 				"tabindex": 0
 			};
 		}
@@ -3175,7 +3175,7 @@ var $;
 			return null;
 		}
 		event(){
-			return {...(super.event()), "keydown": (next) => (this.keydown(next))};
+			return {...(super.event()), "keydown": (next) => (this?.keydown(next))};
 		}
 		key(){
 			return {};
@@ -3388,7 +3388,7 @@ var $;
 			return null;
 		}
 		event(){
-			return {...(super.event()), "keydown": (next) => (this.event_key(next))};
+			return {...(super.event()), "keydown": (next) => (this?.event_key(next))};
 		}
 	};
 	($mol_mem(($.$mol_nav.prototype), "event_key"));
@@ -4153,13 +4153,13 @@ var $;
 			return "";
 		}
 		value_changed(next){
-			return (this.value(next));
+			return (this?.value(next));
 		}
 		hint(){
 			return "";
 		}
 		hint_visible(){
-			return (this.hint());
+			return (this?.hint());
 		}
 		spellcheck(){
 			return true;
@@ -4199,8 +4199,8 @@ var $;
 		}
 		Submit(){
 			const obj = new this.$.$mol_hotkey();
-			(obj.mod_ctrl) = () => ((this.submit_with_ctrl()));
-			(obj.key) = () => ({"enter": (next) => (this.submit(next))});
+			(obj.mod_ctrl) = () => ((this?.submit_with_ctrl()));
+			(obj.key) = () => ({"enter": (next) => (this?.submit(next))});
 			return obj;
 		}
 		dom_name(){
@@ -4220,34 +4220,34 @@ var $;
 			return [0, 0];
 		}
 		auto(){
-			return [(this.selection_watcher()), (this.error_report())];
+			return [(this?.selection_watcher()), (this?.error_report())];
 		}
 		field(){
 			return {
 				...(super.field()), 
-				"disabled": (this.disabled()), 
-				"value": (this.value_changed()), 
-				"placeholder": (this.hint_visible()), 
-				"spellcheck": (this.spellcheck()), 
-				"autocomplete": (this.autocomplete_native()), 
-				"selectionEnd": (this.selection_end()), 
-				"selectionStart": (this.selection_start()), 
-				"inputMode": (this.keyboard()), 
-				"enterkeyhint": (this.enter())
+				"disabled": (this?.disabled()), 
+				"value": (this?.value_changed()), 
+				"placeholder": (this?.hint_visible()), 
+				"spellcheck": (this?.spellcheck()), 
+				"autocomplete": (this?.autocomplete_native()), 
+				"selectionEnd": (this?.selection_end()), 
+				"selectionStart": (this?.selection_start()), 
+				"inputMode": (this?.keyboard()), 
+				"enterkeyhint": (this?.enter())
 			};
 		}
 		attr(){
 			return {
 				...(super.attr()), 
-				"maxlength": (this.length_max()), 
-				"type": (this.type())
+				"maxlength": (this?.length_max()), 
+				"type": (this?.type())
 			};
 		}
 		event(){
-			return {...(super.event()), "input": (next) => (this.event_change(next))};
+			return {...(super.event()), "input": (next) => (this?.event_change(next))};
 		}
 		plugins(){
-			return [(this.Submit())];
+			return [(this?.Submit())];
 		}
 	};
 	($mol_mem(($.$mol_string.prototype), "value"));
@@ -4482,8 +4482,8 @@ var $;
 		attr(){
 			return {
 				...(super.attr()), 
-				"viewBox": (this.view_box()), 
-				"preserveAspectRatio": (this.aspect())
+				"viewBox": (this?.view_box()), 
+				"preserveAspectRatio": (this?.aspect())
 			};
 		}
 	};
@@ -4508,7 +4508,7 @@ var $;
 			return "path";
 		}
 		attr(){
-			return {...(super.attr()), "d": (this.geometry())};
+			return {...(super.attr()), "d": (this?.geometry())};
 		}
 	};
 
@@ -4523,7 +4523,7 @@ var $;
 		}
 		Path(){
 			const obj = new this.$.$mol_svg_path();
-			(obj.geometry) = () => ((this.path()));
+			(obj.geometry) = () => ((this?.path()));
 			return obj;
 		}
 		view_box(){
@@ -4536,7 +4536,7 @@ var $;
 			return 16;
 		}
 		sub(){
-			return [(this.Path())];
+			return [(this?.Path())];
 		}
 	};
 	($mol_mem(($.$mol_icon.prototype), "Path"));
@@ -4572,13 +4572,13 @@ var $;
 			return null;
 		}
 		attr(){
-			return {...(super.attr()), "mol_theme": (this.theme())};
+			return {...(super.attr()), "mol_theme": (this?.theme())};
 		}
 		style(){
 			return {...(super.style()), "minHeight": "1em"};
 		}
 		sub(){
-			return [(this.value())];
+			return [(this?.value())];
 		}
 	};
 
@@ -4617,7 +4617,7 @@ var $;
 			return "";
 		}
 		hint_safe(){
-			return (this.hint());
+			return (this?.hint());
 		}
 		error(){
 			return "";
@@ -4636,26 +4636,26 @@ var $;
 		event(){
 			return {
 				...(super.event()), 
-				"click": (next) => (this.event_activate(next)), 
-				"dblclick": (next) => (this.clicks(next)), 
-				"keydown": (next) => (this.event_key_press(next))
+				"click": (next) => (this?.event_activate(next)), 
+				"dblclick": (next) => (this?.clicks(next)), 
+				"keydown": (next) => (this?.event_key_press(next))
 			};
 		}
 		attr(){
 			return {
 				...(super.attr()), 
-				"disabled": (this.disabled()), 
+				"disabled": (this?.disabled()), 
 				"role": "button", 
-				"tabindex": (this.tab_index()), 
-				"title": (this.hint_safe())
+				"tabindex": (this?.tab_index()), 
+				"title": (this?.hint_safe())
 			};
 		}
 		sub(){
-			return [(this.title())];
+			return [(this?.title())];
 		}
 		Speck(){
 			const obj = new this.$.$mol_speck();
-			(obj.value) = () => ((this.error()));
+			(obj.value) = () => ((this?.error()));
 			return obj;
 		}
 	};
@@ -4796,7 +4796,7 @@ var $;
 			return 0;
 		}
 		sub(){
-			return (this.rows());
+			return (this?.rows());
 		}
 		Empty(){
 			const obj = new this.$.$mol_view();
@@ -4804,12 +4804,12 @@ var $;
 		}
 		Gap_before(){
 			const obj = new this.$.$mol_view();
-			(obj.style) = () => ({"paddingTop": (this.gap_before())});
+			(obj.style) = () => ({"paddingTop": (this?.gap_before())});
 			return obj;
 		}
 		Gap_after(){
 			const obj = new this.$.$mol_view();
-			(obj.style) = () => ({"paddingTop": (this.gap_after())});
+			(obj.style) = () => ({"paddingTop": (this?.gap_after())});
 			return obj;
 		}
 		view_window(){
@@ -4989,7 +4989,7 @@ var $;
 			return 0;
 		}
 		sub(){
-			return [(this.title())];
+			return [(this?.title())];
 		}
 	};
 
@@ -5067,16 +5067,16 @@ var $;
 			return "";
 		}
 		sub(){
-			return (this.parts());
+			return (this?.parts());
 		}
 		Low(id){
 			const obj = new this.$.$mol_paragraph();
-			(obj.sub) = () => ([(this.string(id))]);
+			(obj.sub) = () => ([(this?.string(id))]);
 			return obj;
 		}
 		High(id){
 			const obj = new this.$.$mol_paragraph();
-			(obj.sub) = () => ([(this.string(id))]);
+			(obj.sub) = () => ([(this?.string(id))]);
 			return obj;
 		}
 	};
@@ -5433,7 +5433,7 @@ var $;
 		}
 		Hotkey(){
 			const obj = new this.$.$mol_hotkey();
-			(obj.key) = () => ({"escape": (next) => (this.clear(next))});
+			(obj.key) = () => ({"escape": (next) => (this?.clear(next))});
 			return obj;
 		}
 		nav_components(){
@@ -5445,8 +5445,8 @@ var $;
 		}
 		Nav(){
 			const obj = new this.$.$mol_nav();
-			(obj.keys_y) = () => ((this.nav_components()));
-			(obj.current_y) = (next) => ((this.nav_focused(next)));
+			(obj.keys_y) = () => ((this?.nav_components()));
+			(obj.current_y) = (next) => ((this?.nav_focused(next)));
 			return obj;
 		}
 		suggests_showed(next){
@@ -5474,16 +5474,16 @@ var $;
 			return "search";
 		}
 		bring(){
-			return (this.Query().bring());
+			return (this?.Query()?.bring());
 		}
 		Query(){
 			const obj = new this.$.$mol_string();
-			(obj.value) = (next) => ((this.query(next)));
-			(obj.hint) = () => ((this.hint()));
-			(obj.submit) = (next) => ((this.submit(next)));
-			(obj.enabled) = () => ((this.enabled()));
-			(obj.keyboard) = () => ((this.keyboard()));
-			(obj.enter) = () => ((this.enter()));
+			(obj.value) = (next) => ((this?.query(next)));
+			(obj.hint) = () => ((this?.hint()));
+			(obj.submit) = (next) => ((this?.submit(next)));
+			(obj.enabled) = () => ((this?.enabled()));
+			(obj.keyboard) = () => ((this?.keyboard()));
+			(obj.enter) = () => ((this?.enter()));
 			return obj;
 		}
 		Clear_icon(){
@@ -5493,19 +5493,19 @@ var $;
 		Clear(){
 			const obj = new this.$.$mol_button_minor();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$mol_search_Clear_hint")));
-			(obj.click) = (next) => ((this.clear(next)));
-			(obj.sub) = () => ([(this.Clear_icon())]);
+			(obj.click) = (next) => ((this?.clear(next)));
+			(obj.sub) = () => ([(this?.Clear_icon())]);
 			return obj;
 		}
 		anchor_content(){
-			return [(this.Query()), (this.Clear())];
+			return [(this?.Query()), (this?.Clear())];
 		}
 		menu_items(){
 			return [];
 		}
 		Menu(){
 			const obj = new this.$.$mol_list();
-			(obj.rows) = () => ((this.menu_items()));
+			(obj.rows) = () => ((this?.menu_items()));
 			return obj;
 		}
 		suggest_select(id, next){
@@ -5517,12 +5517,12 @@ var $;
 		}
 		Suggest_label(id){
 			const obj = new this.$.$mol_dimmer();
-			(obj.haystack) = () => ((this.suggest_label(id)));
-			(obj.needle) = () => ((this.query()));
+			(obj.haystack) = () => ((this?.suggest_label(id)));
+			(obj.needle) = () => ((this?.query()));
 			return obj;
 		}
 		suggest_content(id){
-			return [(this.Suggest_label(id))];
+			return [(this?.Suggest_label(id))];
 		}
 		suggests(){
 			return [];
@@ -5530,28 +5530,28 @@ var $;
 		plugins(){
 			return [
 				...(super.plugins()), 
-				(this.Hotkey()), 
-				(this.Nav())
+				(this?.Hotkey()), 
+				(this?.Nav())
 			];
 		}
 		showed(next){
-			return (this.suggests_showed(next));
+			return (this?.suggests_showed(next));
 		}
 		align_hor(){
 			return "right";
 		}
 		Anchor(){
 			const obj = new this.$.$mol_view();
-			(obj.sub) = () => ((this.anchor_content()));
+			(obj.sub) = () => ((this?.anchor_content()));
 			return obj;
 		}
 		bubble_content(){
-			return [(this.Menu())];
+			return [(this?.Menu())];
 		}
 		Suggest(id){
 			const obj = new this.$.$mol_button_minor();
-			(obj.click) = (next) => ((this.suggest_select(id, next)));
-			(obj.sub) = () => ((this.suggest_content(id)));
+			(obj.click) = (next) => ((this?.suggest_select(id, next)));
+			(obj.sub) = () => ((this?.suggest_content(id)));
 			return obj;
 		}
 	};
@@ -5669,7 +5669,7 @@ var $;
 			return "";
 		}
 		hint_safe(){
-			return (this.hint());
+			return (this?.hint());
 		}
 		target(){
 			return "_self";
@@ -5688,7 +5688,7 @@ var $;
 			return null;
 		}
 		click(next){
-			return (this.event_click(next));
+			return (this?.event_click(next));
 		}
 		uri(){
 			return "";
@@ -5708,22 +5708,22 @@ var $;
 		attr(){
 			return {
 				...(super.attr()), 
-				"href": (this.uri_toggle()), 
-				"title": (this.hint_safe()), 
-				"target": (this.target()), 
-				"download": (this.file_name()), 
-				"mol_link_current": (this.current()), 
-				"rel": (this.relation())
+				"href": (this?.uri_toggle()), 
+				"title": (this?.hint_safe()), 
+				"target": (this?.target()), 
+				"download": (this?.file_name()), 
+				"mol_link_current": (this?.current()), 
+				"rel": (this?.relation())
 			};
 		}
 		sub(){
-			return [(this.title())];
+			return [(this?.title())];
 		}
 		arg(){
 			return {};
 		}
 		event(){
-			return {...(super.event()), "click": (next) => (this.click(next))};
+			return {...(super.event()), "click": (next) => (this?.click(next))};
 		}
 	};
 	($mol_mem(($.$mol_link.prototype), "event_click"));
@@ -5998,12 +5998,12 @@ var $;
 			return null;
 		}
 		title_content(){
-			return [(this.Logo()), (this.title())];
+			return [(this?.Logo()), (this?.title())];
 		}
 		Title(){
 			const obj = new this.$.$mol_view();
 			(obj.dom_name) = () => ("h1");
-			(obj.sub) = () => ((this.title_content()));
+			(obj.sub) = () => ((this?.title_content()));
 			return obj;
 		}
 		tools(){
@@ -6011,36 +6011,36 @@ var $;
 		}
 		Tools(){
 			const obj = new this.$.$mol_view();
-			(obj.sub) = () => ((this.tools()));
+			(obj.sub) = () => ((this?.tools()));
 			return obj;
 		}
 		head(){
-			return [(this.Title()), (this.Tools())];
+			return [(this?.Title()), (this?.Tools())];
 		}
 		Head(){
 			const obj = new this.$.$mol_view();
 			(obj.minimal_height) = () => (64);
 			(obj.dom_name) = () => ("header");
-			(obj.sub) = () => ((this.head()));
+			(obj.sub) = () => ((this?.head()));
 			return obj;
 		}
 		body_scroll_top(next){
-			return (this.Body().scroll_top(next));
+			return (this?.Body()?.scroll_top(next));
 		}
 		body(){
 			return [];
 		}
 		Body_content(){
 			const obj = new this.$.$mol_view();
-			(obj.sub) = () => ((this.body()));
+			(obj.sub) = () => ((this?.body()));
 			return obj;
 		}
 		body_content(){
-			return [(this.Body_content())];
+			return [(this?.Body_content())];
 		}
 		Body(){
 			const obj = new this.$.$mol_scroll();
-			(obj.sub) = () => ((this.body_content()));
+			(obj.sub) = () => ((this?.body_content()));
 			return obj;
 		}
 		foot(){
@@ -6049,20 +6049,20 @@ var $;
 		Foot(){
 			const obj = new this.$.$mol_view();
 			(obj.dom_name) = () => ("footer");
-			(obj.sub) = () => ((this.foot()));
+			(obj.sub) = () => ((this?.foot()));
 			return obj;
 		}
 		dom_name(){
 			return "article";
 		}
 		field(){
-			return {...(super.field()), "tabIndex": (this.tabindex())};
+			return {...(super.field()), "tabIndex": (this?.tabindex())};
 		}
 		sub(){
 			return [
-				(this.Head()), 
-				(this.Body()), 
-				(this.Foot())
+				(this?.Head()), 
+				(this?.Body()), 
+				(this?.Foot())
 			];
 		}
 	};
@@ -6193,19 +6193,19 @@ var $;
 ;
 	($.$mol_book2_catalog) = class $mol_book2_catalog extends ($.$mol_book2) {
 		Menu_title(){
-			return (this.Menu().Title());
+			return (this?.Menu()?.Title());
 		}
 		menu_title(){
 			return "";
 		}
 		Menu_tools(){
-			return (this.Menu().Tools());
+			return (this?.Menu()?.Tools());
 		}
 		Menu_logo(){
 			return null;
 		}
 		menu_head(){
-			return [(this.Menu_title()), (this.Menu_tools())];
+			return [(this?.Menu_title()), (this?.Menu_tools())];
 		}
 		menu_filter(next){
 			if(next !== undefined) return next;
@@ -6213,7 +6213,7 @@ var $;
 		}
 		Menu_filter(){
 			const obj = new this.$.$mol_search();
-			(obj.query) = (next) => ((this.menu_filter(next)));
+			(obj.query) = (next) => ((this?.menu_filter(next)));
 			return obj;
 		}
 		arg(id){
@@ -6224,41 +6224,41 @@ var $;
 		}
 		Menu_link_title(id){
 			const obj = new this.$.$mol_dimmer();
-			(obj.needle) = () => ((this.menu_filter()));
-			(obj.haystack) = () => ((this.spread_title(id)));
+			(obj.needle) = () => ((this?.menu_filter()));
+			(obj.haystack) = () => ((this?.spread_title(id)));
 			return obj;
 		}
 		menu_link_content(id){
-			return [(this.Menu_link_title(id))];
+			return [(this?.Menu_link_title(id))];
 		}
 		Menu_link(id){
 			const obj = new this.$.$mol_link();
-			(obj.arg) = () => ((this.arg(id)));
-			(obj.sub) = () => ((this.menu_link_content(id)));
+			(obj.arg) = () => ((this?.arg(id)));
+			(obj.sub) = () => ((this?.menu_link_content(id)));
 			return obj;
 		}
 		menu_links(){
-			return [(this.Menu_link("0"))];
+			return [(this?.Menu_link("0"))];
 		}
 		Menu_links(){
 			const obj = new this.$.$mol_list();
-			(obj.rows) = () => ((this.menu_links()));
+			(obj.rows) = () => ((this?.menu_links()));
 			return obj;
 		}
 		menu_body(){
-			return [(this.Menu_filter()), (this.Menu_links())];
+			return [(this?.Menu_filter()), (this?.Menu_links())];
 		}
 		menu_foot(){
 			return [];
 		}
 		Menu(){
 			const obj = new this.$.$mol_page();
-			(obj.title) = () => ((this.menu_title()));
-			(obj.Logo) = () => ((this.Menu_logo()));
+			(obj.title) = () => ((this?.menu_title()));
+			(obj.Logo) = () => ((this?.Menu_logo()));
 			(obj.tools) = () => ([...(this.menu_tools()), ...(this.addon_tools())]);
-			(obj.head) = () => ((this.menu_head()));
-			(obj.body) = () => ((this.menu_body()));
-			(obj.foot) = () => ((this.menu_foot()));
+			(obj.head) = () => ((this?.menu_head()));
+			(obj.body) = () => ((this?.menu_body()));
+			(obj.foot) = () => ((this?.menu_foot()));
 			return obj;
 		}
 		spread_close_arg(){
@@ -6301,12 +6301,13 @@ var $;
 			return [];
 		}
 		pages(){
-			return [(this.Menu())];
+			return [(this?.Menu())];
 		}
 		Spread_close(){
 			const obj = new this.$.$mol_link();
-			(obj.arg) = () => ((this.spread_close_arg()));
-			(obj.sub) = () => ([(this.Spread_close_icon())]);
+			(obj.arg) = () => ((this?.spread_close_arg()));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$mol_book2_catalog_Spread_close_hint")));
+			(obj.sub) = () => ([(this?.Spread_close_icon())]);
 			return obj;
 		}
 	};
@@ -6474,7 +6475,7 @@ var $;
 			return (this.$.$mol_locale.text("$mol_link_source_hint"));
 		}
 		sub(){
-			return [(this.Icon())];
+			return [(this?.Icon())];
 		}
 	};
 	($mol_mem(($.$mol_link_source.prototype), "Icon"));
@@ -6522,7 +6523,7 @@ var $;
 		}
 		Money(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.money_label()));
+			(obj.title) = () => ((this?.money_label()));
 			return obj;
 		}
 		dice_result_label(id){
@@ -6530,7 +6531,7 @@ var $;
 		}
 		Dice_result(id){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.dice_result_label(id)));
+			(obj.title) = () => ((this?.dice_result_label(id)));
 			return obj;
 		}
 		dice_value_label(id){
@@ -6538,7 +6539,7 @@ var $;
 		}
 		Dice_value(id){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.dice_value_label(id)));
+			(obj.title) = () => ((this?.dice_value_label(id)));
 			return obj;
 		}
 		dice_level_label(id){
@@ -6546,7 +6547,7 @@ var $;
 		}
 		Dice_level(id){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.dice_level_label(id)));
+			(obj.title) = () => ((this?.dice_level_label(id)));
 			return obj;
 		}
 		dice_up(id){
@@ -6554,30 +6555,30 @@ var $;
 		}
 		Dice_up(id){
 			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ((this.dice_up(id)));
+			(obj.title) = () => ((this?.dice_up(id)));
 			return obj;
 		}
 		Dice_box(id){
 			const obj = new this.$.$mol_list();
 			(obj.rows) = () => ([
-				(this.Dice_result(id)), 
-				(this.Dice_value(id)), 
-				(this.Dice_level(id)), 
-				(this.Dice_up(id))
+				(this?.Dice_result(id)), 
+				(this?.Dice_value(id)), 
+				(this?.Dice_level(id)), 
+				(this?.Dice_up(id))
 			]);
 			return obj;
 		}
 		dice_list(){
-			return [(this.Dice_box("0"))];
+			return [(this?.Dice_box("0"))];
 		}
 		Dice_list(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ((this.dice_list()));
+			(obj.sub) = () => ((this?.dice_list()));
 			return obj;
 		}
 		Dice_row(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ([(this.Dice_list())]);
+			(obj.sub) = () => ([(this?.Dice_list())]);
 			return obj;
 		}
 		Roll(){
@@ -6590,9 +6591,9 @@ var $;
 		}
 		body(){
 			return [
-				(this.Money()), 
-				(this.Dice_row()), 
-				(this.Roll())
+				(this?.Money()), 
+				(this?.Dice_row()), 
+				(this?.Roll())
 			];
 		}
 	};
@@ -6678,22 +6679,22 @@ var $;
 		}
 		Title(){
 			const obj = new this.$.$mol_view();
-			(obj.sub) = () => ([(this.title())]);
+			(obj.sub) = () => ([(this?.title())]);
 			return obj;
 		}
 		label(){
-			return [(this.Title())];
+			return [(this?.Title())];
 		}
 		attr(){
 			return {
 				...(super.attr()), 
-				"mol_check_checked": (this.checked()), 
-				"aria-checked": (this.aria_checked()), 
-				"role": (this.aria_role())
+				"mol_check_checked": (this?.checked()), 
+				"aria-checked": (this?.aria_checked()), 
+				"role": (this?.aria_role())
 			};
 		}
 		sub(){
-			return [(this.Icon()), (this.label())];
+			return [(this?.Icon()), (this?.label())];
 		}
 	};
 	($mol_mem(($.$mol_check.prototype), "checked"));
@@ -6782,7 +6783,7 @@ var $;
 		}
 		Money(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.money_title()));
+			(obj.title) = () => ((this?.money_title()));
 			return obj;
 		}
 		damage_title(){
@@ -6790,12 +6791,12 @@ var $;
 		}
 		Damage(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.damage_title()));
+			(obj.title) = () => ((this?.damage_title()));
 			return obj;
 		}
 		Stats_row(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ([(this.Money()), (this.Damage())]);
+			(obj.sub) = () => ([(this?.Money()), (this?.Damage())]);
 			return obj;
 		}
 		Enemy(){
@@ -6808,7 +6809,7 @@ var $;
 		}
 		Enemy_level(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.level_title()));
+			(obj.title) = () => ((this?.level_title()));
 			return obj;
 		}
 		health_title(){
@@ -6816,15 +6817,15 @@ var $;
 		}
 		Enemy_health(){
 			const obj = new this.$.$mol_paragraph();
-			(obj.title) = () => ((this.health_title()));
+			(obj.title) = () => ((this?.health_title()));
 			return obj;
 		}
 		Ememy_row(){
 			const obj = new this.$.$mol_row();
 			(obj.sub) = () => ([
-				(this.Enemy()), 
-				(this.Enemy_level()), 
-				(this.Enemy_health())
+				(this?.Enemy()), 
+				(this?.Enemy_level()), 
+				(this?.Enemy_health())
 			]);
 			return obj;
 		}
@@ -6835,12 +6836,12 @@ var $;
 		Attack_enemy(){
 			const obj = new this.$.$mol_button_major();
 			(obj.title) = () => ("Атаковать");
-			(obj.click) = (next) => ((this.attack_enemy(next)));
+			(obj.click) = (next) => ((this?.attack_enemy(next)));
 			return obj;
 		}
 		Action_row(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ([(this.Attack_enemy())]);
+			(obj.sub) = () => ([(this?.Attack_enemy())]);
 			return obj;
 		}
 		skill_x10(next){
@@ -6850,7 +6851,7 @@ var $;
 		Dmg_x10(){
 			const obj = new this.$.$mol_button_major();
 			(obj.title) = () => ("🪄 x10");
-			(obj.click) = (next) => ((this.skill_x10(next)));
+			(obj.click) = (next) => ((this?.skill_x10(next)));
 			return obj;
 		}
 		auto_checked(next){
@@ -6860,12 +6861,12 @@ var $;
 		Auto_attack(){
 			const obj = new this.$.$mol_check_box();
 			(obj.title) = () => ("Автоатака");
-			(obj.checked) = (next) => ((this.auto_checked(next)));
+			(obj.checked) = (next) => ((this?.auto_checked(next)));
 			return obj;
 		}
 		Skills_row(){
 			const obj = new this.$.$mol_row();
-			(obj.sub) = () => ([(this.Dmg_x10()), (this.Auto_attack())]);
+			(obj.sub) = () => ([(this?.Dmg_x10()), (this?.Auto_attack())]);
 			return obj;
 		}
 		damage_up_title(next){
@@ -6882,24 +6883,24 @@ var $;
 		}
 		Damage_up(){
 			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ((this.damage_up_title()));
-			(obj.enabled) = (next) => ((this.damage_up_enabled(next)));
-			(obj.click) = (next) => ((this.damage_up(next)));
+			(obj.title) = () => ((this?.damage_up_title()));
+			(obj.enabled) = (next) => ((this?.damage_up_enabled(next)));
+			(obj.click) = (next) => ((this?.damage_up(next)));
 			return obj;
 		}
 		title(){
 			return "⚔️DPS";
 		}
 		auto(){
-			return [(this.auto_attack())];
+			return [(this?.auto_attack())];
 		}
 		body(){
 			return [
-				(this.Stats_row()), 
-				(this.Ememy_row()), 
-				(this.Action_row()), 
-				(this.Skills_row()), 
-				(this.Damage_up())
+				(this?.Stats_row()), 
+				(this?.Ememy_row()), 
+				(this?.Action_row()), 
+				(this?.Skills_row()), 
+				(this?.Damage_up())
 			];
 		}
 	};
@@ -7025,7 +7026,7 @@ var $;
 		}
 		Telegram(){
 			const obj = new this.$.$mol_link_source();
-			(obj.Icon) = () => ((this.Telegram_icon()));
+			(obj.Icon) = () => ((this?.Telegram_icon()));
 			(obj.uri) = () => ("https://t.me/h_y_o_o/4484");
 			return obj;
 		}
@@ -7046,13 +7047,13 @@ var $;
 			return "Idle";
 		}
 		menu_tools(){
-			return [(this.Telegram()), (this.Sources())];
+			return [(this?.Telegram()), (this?.Sources())];
 		}
 		param(){
 			return "game";
 		}
 		spreads(){
-			return {"dice": (this.Dice_page()), "dps": (this.Dps_page())};
+			return {"dice": (this?.Dice_page()), "dps": (this?.Dps_page())};
 		}
 	};
 	($mol_mem(($.$idle_app.prototype), "Telegram_icon"));
