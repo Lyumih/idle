@@ -194,7 +194,6 @@
     "$mol_icon_tick"
   ],
   "dependencies": {
-    "internal": "*",
     "jsdom": "*"
   }
 }
