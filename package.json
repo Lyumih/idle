@@ -196,6 +196,7 @@
     "$idle_app_dps",
     "$mol_check_box",
     "$mol_check",
+    "$mol_dom_event",
     "$mol_icon_tick"
   ],
   "dependencies": {
