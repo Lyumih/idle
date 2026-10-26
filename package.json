@@ -197,6 +197,7 @@
     "$mol_check_box",
     "$mol_check",
     "$mol_dom_event",
+    "$mol_dom_transfer",
     "$mol_icon_tick"
   ],
   "dependencies": {
